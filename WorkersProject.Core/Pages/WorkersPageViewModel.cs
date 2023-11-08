@@ -18,22 +18,25 @@ namespace WorkersProject.Core
                 new WorkerControlViewModel("Adam", "Kowal", "Tester", 21),
                 new WorkerControlViewModel("Kamil", "Nowak", "Grafik", 22),
             };
-        public string OutputText { get; set; }
-        public string InputText { get; set; }
-        public ICommand SwapTextCommand { get; set; }
+        public string NewWorkerName { get; set; }
+        public string NewWorkerSurname { get; set; }
+        public string NewWorkerProfession { get; set; }
+        public int NewWorkerAge { get; set; }
+        public ICommand AddWorkerCommand { get; set; }
 
         public WorkersPageViewModel()
         {
             //OutputText = "1234";
-            SwapTextCommand = new RelayCommand(TextCommand);
+            AddWorkerCommand = new RelayCommand(AddWorkerMethod);
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        private void TextCommand()
+        private void AddWorkerMethod()
         {
-            OutputText = InputText;
-            OnPropertyChanged(nameof(OutputText));
+            var newWorker = new WorkerControlViewModel(NewWorkerName, NewWorkerSurname, NewWorkerProfession, NewWorkerAge);
+            WorkersListView.Add(newWorker);
+            //OnPropertyChanged(nameof(OutputText));
         }
     }
 }

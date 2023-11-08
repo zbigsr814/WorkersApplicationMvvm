@@ -33,7 +33,7 @@
                 <TextBox Margin="5" Width="100" Text="{Binding NewWorkerProfession}"/>
                 <TextBlock Margin="5" Text="Age:"/>
                 <TextBox Margin="5" Width="100" Text="{Binding NewWorkerAge}"/>
-                <Button Margin="5" Content="Dodaj" Command="{Binding SwapTextCommand}"/>
+                <Button Margin="5" Content="Dodaj" Command="{Binding AddWorkerCommand}"/>
             </StackPanel>
         </Border>
         
