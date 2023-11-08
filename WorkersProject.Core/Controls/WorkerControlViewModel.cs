@@ -13,9 +13,12 @@ namespace WorkersProject.Core
         public string WorkerProfession { get; set; }
         public int WorkerAge { get; set; }
 
-        public WorkerControlViewModel(string name)
+        public WorkerControlViewModel(string name, string surname, string profession, int age)
         {
             WorkerName = name;
+            WorkerSurname = surname;
+            WorkerProfession = profession;
+            WorkerAge = age;
         }
     }
 }

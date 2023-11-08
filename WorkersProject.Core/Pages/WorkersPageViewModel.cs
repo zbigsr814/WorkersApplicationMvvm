@@ -12,7 +12,12 @@ namespace WorkersProject.Core
     public class WorkersPageViewModel : MainBase
     {
         public ObservableCollection<WorkerControlViewModel> WorkersListView { get; set; }
-            = new ObservableCollection<WorkerControlViewModel>() { new WorkerControlViewModel("Jacek") };
+            = new ObservableCollection<WorkerControlViewModel>() 
+            { 
+                new WorkerControlViewModel("Jacek", "Nowak", "Developer", 33),
+                new WorkerControlViewModel("Adam", "Kowal", "Tester", 21),
+                new WorkerControlViewModel("Kamil", "Nowak", "Grafik", 22),
+            };
         public string OutputText { get; set; }
         public string InputText { get; set; }
         public ICommand SwapTextCommand { get; set; }

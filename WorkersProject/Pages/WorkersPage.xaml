@@ -9,15 +9,34 @@
       Title="WorkersPage">
 
     <StackPanel>
-        <TextBlock Text="Lista pracowników"/>
+        <TextBlock HorizontalAlignment="Center" Text="List of workers"/>
+
+            <ListView HorizontalContentAlignment="Center" Background="LightGray" ItemsSource="{Binding WorkersListView}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding WorkerName}"/>
+                        <GridViewColumn Header="Surname" DisplayMemberBinding="{Binding WorkerSurname}"/>
+                        <GridViewColumn Header="Profession" DisplayMemberBinding="{Binding WorkerProfession}"/>
+                        <GridViewColumn Header="Age" DisplayMemberBinding="{Binding WorkerAge}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+
+            <Border Background="Gray" BorderBrush="Black" BorderThickness="2">
+            <StackPanel Margin="10" Orientation="Horizontal">
+                <TextBlock Margin="5" Text="Name:"/>
+                <TextBox Margin="5" Width="100" Text="{Binding NewWorkerName}"/>
+                <TextBlock Margin="5" Text="Surname:"/>
+                <TextBox Margin="5" Width="100" Text="{Binding NewWorkerSurname}"/>
+                <TextBlock Margin="5" Text="Profession:"/>
+                <TextBox Margin="5" Width="100" Text="{Binding NewWorkerProfession}"/>
+                <TextBlock Margin="5" Text="Age:"/>
+                <TextBox Margin="5" Width="100" Text="{Binding NewWorkerAge}"/>
+                <Button Margin="5" Content="Dodaj" Command="{Binding SwapTextCommand}"/>
+            </StackPanel>
+        </Border>
         
-        <ListView ItemsSource="{Binding WorkersListView}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <local:WorkerControl/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <Button Content="Dodaj" Command="{Binding SwapTextCommand}"/>
+        
     </StackPanel>
 </Page>
